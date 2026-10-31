@@ -1,0 +1,41 @@
+# To display the perf.data header info, please use --header/--header-only options.
+#
+#
+# Total Lost Samples: 0
+#
+# Samples: 1K of event 'cpu-clock:u'
+# Event count (approx.): 1362362361
+#
+# Overhead  Symbol           IPC   [IPC Coverage]
+# ........  ...............  ....................
+#
+    97.65%  [.] main         -      -            
+            |
+            ---0x7fd4e402a601
+               __libc_start_main
+               _start
+
+     0.88%  [.] init_matrix  -      -            
+            |
+            ---main
+               0x7fd4e402a601
+               __libc_start_main
+               _start
+
+     0.81%  [.] random_r     -      -            
+            |
+            ---rand
+               init_matrix
+               main
+               0x7fd4e402a601
+               __libc_start_main
+               _start
+
+     0.44%  [.] random       -      -            
+     0.15%  [.] rand@plt     -      -            
+     0.07%  [.] rand         -      -            
+
+
+#
+# (Cannot load tips.txt file, please install perf!)
+#

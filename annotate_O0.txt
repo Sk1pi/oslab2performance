@@ -1,0 +1,80 @@
+ Percent |	Source code & Disassembly of matmul_O0 for cpu-clock:u (18895 samples, percent: local period)
+-------------------------------------------------------------------------------------------------------------
+         :
+         :
+         :
+         : 3    Disassembly of section .text:
+         :
+         : 5    0000000000001296 <multiply>:
+    0.00 :   1296:   endbr64
+    0.00 :   129a:   push   rbp
+    0.00 :   129b:   mov    rbp,rsp
+    0.00 :   129e:   mov    QWORD PTR [rbp-0x18],rdi
+    0.00 :   12a2:   mov    QWORD PTR [rbp-0x20],rsi
+    0.00 :   12a6:   mov    QWORD PTR [rbp-0x28],rdx
+    0.00 :   12aa:   mov    DWORD PTR [rbp-0x2c],ecx
+    0.00 :   12ad:   mov    DWORD PTR [rbp-0x10],0x0
+    0.00 :   12b4:   jmp    1388 <multiply+0xf2>
+    0.00 :   12b9:   mov    DWORD PTR [rbp-0xc],0x0
+    0.00 :   12c0:   jmp    1378 <multiply+0xe2>
+    0.01 :   12c5:   mov    eax,DWORD PTR [rbp-0x10]
+    0.00 :   12c8:   imul   eax,DWORD PTR [rbp-0x2c]
+    0.01 :   12cc:   mov    edx,eax
+    0.00 :   12ce:   mov    eax,DWORD PTR [rbp-0xc]
+    0.00 :   12d1:   add    eax,edx
+    0.00 :   12d3:   cdqe
+    0.01 :   12d5:   lea    rdx,[rax*4+0x0]
+    0.01 :   12dd:   mov    rax,QWORD PTR [rbp-0x18]
+    0.00 :   12e1:   add    rax,rdx
+    0.01 :   12e4:   movss  xmm0,DWORD PTR [rax]
+    0.08 :   12e8:   movss  DWORD PTR [rbp-0x4],xmm0
+    0.03 :   12ed:   mov    DWORD PTR [rbp-0x8],0x0
+    0.00 :   12f4:   jmp    136c <multiply+0xd6>
+    0.91 :   12f6:   mov    eax,DWORD PTR [rbp-0x10]
+    0.49 :   12f9:   imul   eax,DWORD PTR [rbp-0x2c]
+    0.58 :   12fd:   mov    edx,eax
+    3.17 :   12ff:   mov    eax,DWORD PTR [rbp-0x8]
+    7.62 :   1302:   add    eax,edx
+    0.92 :   1304:   cdqe
+    0.49 :   1306:   lea    rdx,[rax*4+0x0]
+    0.55 :   130e:   mov    rax,QWORD PTR [rbp-0x28]
+    0.94 :   1312:   add    rax,rdx
+    0.61 :   1315:   movss  xmm1,DWORD PTR [rax]
+    2.65 :   1319:   mov    eax,DWORD PTR [rbp-0xc]
+    3.03 :   131c:   imul   eax,DWORD PTR [rbp-0x2c]
+    7.01 :   1320:   mov    edx,eax
+    0.77 :   1322:   mov    eax,DWORD PTR [rbp-0x8]
+    0.47 :   1325:   add    eax,edx
+    0.43 :   1327:   cdqe
+    0.74 :   1329:   lea    rdx,[rax*4+0x0]
+    0.66 :   1331:   mov    rax,QWORD PTR [rbp-0x20]
+    1.39 :   1335:   add    rax,rdx
+    2.91 :   1338:   movss  xmm0,DWORD PTR [rax]
+   10.02 :   133c:   mulss  xmm0,DWORD PTR [rbp-0x4]
+   12.64 :   1341:   mov    eax,DWORD PTR [rbp-0x10]
+    0.56 :   1344:   imul   eax,DWORD PTR [rbp-0x2c]
+    0.38 :   1348:   mov    edx,eax
+    0.68 :   134a:   mov    eax,DWORD PTR [rbp-0x8]
+    0.46 :   134d:   add    eax,edx
+    0.61 :   134f:   cdqe
+    1.24 :   1351:   lea    rdx,[rax*4+0x0]
+    3.17 :   1359:   mov    rax,QWORD PTR [rbp-0x28]
+    7.25 :   135d:   add    rax,rdx
+    0.52 :   1360:   addss  xmm0,xmm1
+   15.82 :   1364:   movss  DWORD PTR [rax],xmm0
+    8.00 :   1368:   add    DWORD PTR [rbp-0x8],0x1
+    0.93 :   136c:   mov    eax,DWORD PTR [rbp-0x8]
+    0.84 :   136f:   cmp    eax,DWORD PTR [rbp-0x2c]
+    0.30 :   1372:   jl     12f6 <multiply+0x60>
+    0.01 :   1374:   add    DWORD PTR [rbp-0xc],0x1
+    0.03 :   1378:   mov    eax,DWORD PTR [rbp-0xc]
+    0.09 :   137b:   cmp    eax,DWORD PTR [rbp-0x2c]
+    0.00 :   137e:   jl     12c5 <multiply+0x2f>
+    0.00 :   1384:   add    DWORD PTR [rbp-0x10],0x1
+    0.00 :   1388:   mov    eax,DWORD PTR [rbp-0x10]
+    0.00 :   138b:   cmp    eax,DWORD PTR [rbp-0x2c]
+    0.00 :   138e:   jl     12b9 <multiply+0x23>
+    0.00 :   1394:   nop
+    0.00 :   1395:   nop
+    0.00 :   1396:   pop    rbp
+    0.00 :   1397:   ret

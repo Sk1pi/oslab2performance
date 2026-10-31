@@ -1,0 +1,8 @@
+matmul_O0;_start;__libc_start_main;[libc.so.6];main;checksum 11011011
+matmul_O0;_start;__libc_start_main;[libc.so.6];main;init_matrix 13013013
+matmul_O0;_start;__libc_start_main;[libc.so.6];main;init_matrix;rand;random 4004004
+matmul_O0;_start;__libc_start_main;[libc.so.6];main;init_matrix;rand;random_r 4004004
+matmul_O0;_start;__libc_start_main;[libc.so.6];main;init_matrix;random 3003003
+matmul_O0;_start;__libc_start_main;[libc.so.6];main;multiply 18913913895
+matmul_O0;_start;__libc_start_main;[libc.so.6];main;rand 6006006
+matmul_O0;_start;__libc_start_main;[libc.so.6];main;rand@plt 3003003

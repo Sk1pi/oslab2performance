@@ -1,0 +1,452 @@
+ Percent |	Source code & Disassembly of matmul_O3 for cpu-clock:u (1329 samples, percent: local period)
+------------------------------------------------------------------------------------------------------------
+         :
+         :
+         :
+         : 3    Disassembly of section .text:
+         :
+         : 5    0000000000001140 <main>:
+    0.00 :   1140:   endbr64
+    0.00 :   1144:   lea    r10,[rsp+0x8]
+    0.00 :   1149:   and    rsp,0xffffffffffffffe0
+    0.00 :   114d:   push   QWORD PTR [r10-0x8]
+    0.00 :   1151:   push   rbp
+    0.00 :   1152:   mov    rbp,rsp
+    0.00 :   1155:   push   r15
+    0.00 :   1157:   push   r14
+    0.00 :   1159:   push   r13
+    0.00 :   115b:   push   r12
+    0.00 :   115d:   mov    r12d,0x400
+    0.00 :   1163:   push   r10
+    0.00 :   1165:   push   rbx
+    0.00 :   1166:   add    rsp,0xffffffffffffff80
+    0.00 :   116a:   cmp    edi,0x1
+    0.00 :   116d:   jle    1182 <main+0x42>
+         :
+         : 23   #ifdef __USE_EXTERN_INLINES
+         : 24   __extern_inline int
+         : 25   __NTH (atoi (const char *__nptr))
+         : 26   {
+         : 27   return (int) strtol (__nptr, (char **) NULL, 10);
+    0.00 :   116f:   mov    rdi,QWORD PTR [rsi+0x8]
+    0.00 :   1173:   mov    edx,0xa
+    0.00 :   1178:   xor    esi,esi
+    0.00 :   117a:   call   10f0 <__isoc23_strtol@plt>
+    0.00 :   117f:   mov    r12d,eax
+    0.00 :   1182:   movsxd rbx,r12d
+    0.00 :   1185:   mov    QWORD PTR [rbp-0x78],rbx
+    0.00 :   1189:   imul   rbx,rbx
+    0.00 :   118d:   lea    rdi,[rbx*4+0x0]
+    0.00 :   1195:   call   1100 <malloc@plt>
+    0.00 :   119a:   lea    rdi,[rbx*4+0x0]
+    0.00 :   11a2:   mov    r14,rax
+    0.00 :   11a5:   mov    QWORD PTR [rbp-0x68],rax
+    0.00 :   11a9:   call   1100 <malloc@plt>
+    0.00 :   11ae:   mov    rdi,rbx
+    0.00 :   11b1:   mov    esi,0x4
+    0.00 :   11b6:   mov    r13,rax
+    0.00 :   11b9:   call   10e0 <calloc@plt>
+    0.00 :   11be:   test   r14,r14
+    0.00 :   11c1:   mov    QWORD PTR [rbp-0x98],rax
+    0.00 :   11c8:   mov    rbx,rax
+    0.00 :   11cb:   sete   al
+    0.00 :   11ce:   test   r13,r13
+    0.00 :   11d1:   sete   dl
+    0.00 :   11d4:   or     al,dl
+    0.00 :   11d6:   jne    17d4 <main+0x694>
+    0.00 :   11dc:   test   rbx,rbx
+    0.00 :   11df:   je     17d4 <main+0x694>
+    0.00 :   11e5:   mov    rbx,QWORD PTR [rbp-0x68]
+    0.00 :   11e9:   mov    edx,0x1
+    0.00 :   11ee:   mov    esi,r12d
+    0.00 :   11f1:   mov    rdi,rbx
+    0.00 :   11f4:   call   18f0 <init_matrix>
+    0.00 :   11f9:   mov    edx,0x2
+    0.00 :   11fe:   mov    esi,r12d
+    0.00 :   1201:   mov    rdi,r13
+    0.00 :   1204:   call   18f0 <init_matrix>
+    0.00 :   1209:   test   r12d,r12d
+    0.00 :   120c:   jle    17af <main+0x66f>
+    0.00 :   1212:   mov    rax,QWORD PTR [rbp-0x78]
+    0.00 :   1216:   mov    rcx,rbx
+    0.00 :   1219:   mov    QWORD PTR [rbp-0x50],0x0
+    0.00 :   1221:   mov    rbx,QWORD PTR [rbp-0x98]
+    0.00 :   1228:   mov    DWORD PTR [rbp-0x70],0x0
+    0.00 :   122f:   lea    r10,[rax*4+0x0]
+    0.00 :   1237:   lea    eax,[r12+r12*1]
+    0.00 :   123b:   mov    QWORD PTR [rbp-0x80],rcx
+    0.00 :   123f:   cdqe
+    0.00 :   1241:   mov    r15,rbx
+    0.00 :   1244:   mov    QWORD PTR [rbp-0x60],rax
+    0.00 :   1248:   lea    eax,[r12-0x1]
+    0.00 :   124d:   mov    DWORD PTR [rbp-0x40],eax
+    0.00 :   1250:   lea    eax,[r12-0x3]
+    0.00 :   1255:   and    eax,0xfffffffe
+    0.00 :   1258:   add    eax,0x2
+    0.00 :   125b:   mov    DWORD PTR [rbp-0x58],eax
+    0.00 :   125e:   mov    eax,r12d
+    0.00 :   1261:   shr    eax,0x3
+    0.00 :   1264:   shl    rax,0x5
+    0.00 :   1268:   mov    r14,rax
+    0.00 :   126b:   nop    DWORD PTR [rax+rax*1+0x0]
+    0.00 :   1270:   mov    eax,DWORD PTR [rbp-0x50]
+    0.00 :   1273:   xor    ecx,ecx
+    0.00 :   1275:   cmp    r12d,0x2
+    0.00 :   1279:   mov    DWORD PTR [rbp-0x54],eax
+    0.00 :   127c:   jle    1471 <main+0x331>
+    0.00 :   1282:   mov    ecx,DWORD PTR [rbp-0x58]
+    0.00 :   1285:   add    eax,0x1
+    0.00 :   1288:   mov    QWORD PTR [rbp-0x90],r10
+    0.00 :   128f:   xor    esi,esi
+    0.00 :   1291:   mov    DWORD PTR [rbp-0x6c],eax
+    0.00 :   1294:   mov    rdi,QWORD PTR [rbp-0x80]
+    0.00 :   1298:   xor    r11d,r11d
+    0.00 :   129b:   mov    DWORD PTR [rbp-0x84],ecx
+    0.00 :   12a1:   mov    QWORD PTR [rbp-0x38],r14
+    0.00 :   12a5:   nop    DWORD PTR [rax]
+    0.00 :   12a8:   cmp    DWORD PTR [rbp-0x40],0x6
+    0.00 :   12ac:   vmovss xmm3,DWORD PTR [rdi]
+    0.00 :   12b0:   mov    DWORD PTR [rbp-0x3c],esi
+    0.00 :   12b3:   mov    ecx,esi
+    0.00 :   12b5:   jbe    1768 <main+0x628>
+    0.00 :   12bb:   mov    r14,QWORD PTR [rbp-0x38]
+    0.00 :   12bf:   add    ecx,r12d
+    0.00 :   12c2:   vbroadcastss ymm1,DWORD PTR [rdi+0x4]
+    0.00 :   12c8:   vbroadcastss ymm2,xmm3
+    0.00 :   12cd:   lea    r8,[r13+rsi*4+0x0]
+    0.00 :   12d2:   movsxd rax,ecx
+    0.00 :   12d5:   lea    rdx,[r13+rax*4+0x0]
+    0.00 :   12da:   xor    eax,eax
+    0.00 :   12dc:   nop    DWORD PTR [rax]
+    0.00 :   12df:   data16 cs nop WORD PTR [rax+rax*1+0x0]
+    0.00 :   12ea:   data16 cs nop WORD PTR [rax+rax*1+0x0]
+    0.00 :   12f5:   data16 cs nop WORD PTR [rax+rax*1+0x0]
+    0.00 :   1300:   vmovups ymm0,YMMWORD PTR [r8+rax*1]
+   24.98 :   1306:   vfmadd213ps ymm0,ymm2,YMMWORD PTR [r15+rax*1]
+    4.21 :   130c:   vfmadd231ps ymm0,ymm1,YMMWORD PTR [rdx+rax*1]
+   57.26 :   1312:   vmovups YMMWORD PTR [r15+rax*1],ymm0
+   12.72 :   1318:   add    rax,0x20
+    0.00 :   131c:   cmp    rax,r14
+    0.08 :   131f:   jne    1300 <main+0x1c0>
+    0.00 :   1321:   mov    eax,r12d
+    0.00 :   1324:   and    eax,0xfffffff8
+    0.00 :   1327:   cmp    r12d,eax
+    0.00 :   132a:   mov    edx,eax
+    0.00 :   132c:   je     1748 <main+0x608>
+    0.00 :   1332:   mov    QWORD PTR [rbp-0x38],r14
+    0.00 :   1336:   mov    r8d,r12d
+    0.00 :   1339:   sub    r8d,edx
+    0.00 :   133c:   lea    r9d,[r8-0x1]
+    0.00 :   1340:   cmp    r9d,0x2
+    0.00 :   1344:   jbe    13a4 <main+0x264>
+    0.00 :   1346:   mov    r9,QWORD PTR [rbp-0x50]
+    0.00 :   134a:   mov    r14,QWORD PTR [rbp-0x68]
+    0.00 :   134e:   vbroadcastss xmm0,xmm3
+    0.00 :   1353:   add    r9,rdx
+    0.00 :   1356:   lea    r10,[rbx+r9*4]
+    0.00 :   135a:   movsxd r9,ecx
+    0.00 :   135d:   mov    QWORD PTR [rbp-0x48],r10
+    0.00 :   1361:   mov    r10d,DWORD PTR [rbp-0x6c]
+    0.00 :   1365:   add    r9,rdx
+    0.00 :   1368:   add    rdx,rsi
+    0.00 :   136b:   add    r10d,r11d
+    0.00 :   136e:   test   r8b,0x3
+    0.00 :   1372:   movsxd r10,r10d
+    0.00 :   1375:   vbroadcastss xmm1,DWORD PTR [r14+r10*4]
+    0.00 :   137b:   mov    r10,QWORD PTR [rbp-0x48]
+    0.00 :   137f:   vmovups xmm5,XMMWORD PTR [r10]
+    0.00 :   1384:   vfmadd132ps xmm0,xmm5,XMMWORD PTR [r13+rdx*4+0x0]
+    0.00 :   138b:   vfmadd231ps xmm0,xmm1,XMMWORD PTR [r13+r9*4+0x0]
+    0.00 :   1392:   vmovups XMMWORD PTR [r10],xmm0
+    0.00 :   1397:   je     144a <main+0x30a>
+    0.00 :   139d:   and    r8d,0xfffffffc
+    0.00 :   13a1:   add    eax,r8d
+    0.00 :   13a4:   mov    r14d,DWORD PTR [rbp-0x54]
+    0.00 :   13a8:   mov    r10d,DWORD PTR [rbp-0x3c]
+    0.00 :   13ac:   vmovss xmm1,DWORD PTR [rdi+0x4]
+    0.00 :   13b1:   lea    edx,[r14+rax*1]
+    0.00 :   13b5:   lea    r8d,[r10+rax*1]
+    0.00 :   13b9:   movsxd rdx,edx
+    0.00 :   13bc:   movsxd r8,r8d
+    0.00 :   13bf:   lea    r9,[rbx+rdx*4]
+    0.00 :   13c3:   lea    edx,[rcx+rax*1]
+    0.00 :   13c6:   vmovss xmm0,DWORD PTR [r13+r8*4+0x0]
+    0.00 :   13cd:   movsxd rdx,edx
+    0.00 :   13d0:   vfmadd213ss xmm0,xmm3,DWORD PTR [r9]
+    0.00 :   13d5:   vfmadd231ss xmm0,xmm1,DWORD PTR [r13+rdx*4+0x0]
+    0.00 :   13dc:   lea    edx,[rax+0x1]
+    0.00 :   13df:   cmp    r12d,edx
+    0.00 :   13e2:   vmovss DWORD PTR [r9],xmm0
+    0.00 :   13e7:   jle    144a <main+0x30a>
+    0.00 :   13e9:   lea    r8d,[r14+rdx*1]
+    0.00 :   13ed:   add    eax,0x2
+    0.00 :   13f0:   movsxd r8,r8d
+    0.00 :   13f3:   lea    r9,[rbx+r8*4]
+    0.00 :   13f7:   lea    r8d,[rcx+rdx*1]
+    0.00 :   13fb:   add    edx,r10d
+    0.00 :   13fe:   cmp    r12d,eax
+    0.00 :   1401:   movsxd rdx,edx
+    0.00 :   1404:   movsxd r8,r8d
+    0.00 :   1407:   vmovss xmm0,DWORD PTR [r13+rdx*4+0x0]
+    0.00 :   140e:   vfmadd213ss xmm0,xmm3,DWORD PTR [r9]
+    0.00 :   1413:   vfmadd231ss xmm0,xmm1,DWORD PTR [r13+r8*4+0x0]
+    0.00 :   141a:   vmovss DWORD PTR [r9],xmm0
+    0.00 :   141f:   jle    144a <main+0x30a>
+    0.00 :   1421:   lea    edx,[r14+rax*1]
+    0.00 :   1425:   add    ecx,eax
+    0.00 :   1427:   add    eax,r10d
+    0.00 :   142a:   movsxd rdx,edx
+    0.00 :   142d:   cdqe
+    0.00 :   142f:   movsxd rcx,ecx
+    0.00 :   1432:   vmovss xmm6,DWORD PTR [rbx+rdx*4]
+    0.00 :   1437:   vfmadd132ss xmm3,xmm6,DWORD PTR [r13+rax*4+0x0]
+    0.00 :   143e:   vfmadd132ss xmm1,xmm3,DWORD PTR [r13+rcx*4+0x0]
+    0.00 :   1445:   vmovss DWORD PTR [rbx+rdx*4],xmm1
+    0.00 :   144a:   add    r11d,0x2
+    0.00 :   144e:   add    rdi,0x8
+    0.00 :   1452:   add    rsi,QWORD PTR [rbp-0x60]
+    0.00 :   1456:   cmp    r11d,DWORD PTR [rbp-0x58]
+    0.00 :   145a:   jne    12a8 <main+0x168>
+    0.00 :   1460:   mov    ecx,DWORD PTR [rbp-0x84]
+    0.00 :   1466:   mov    r10,QWORD PTR [rbp-0x90]
+    0.00 :   146d:   mov    r14,QWORD PTR [rbp-0x38]
+    0.00 :   1471:   mov    esi,ecx
+    0.00 :   1473:   mov    rax,QWORD PTR [rbp-0x50]
+    0.00 :   1477:   movsxd rdi,ecx
+    0.00 :   147a:   mov    QWORD PTR [rbp-0x38],r15
+    0.00 :   147e:   imul   esi,r12d
+    0.00 :   1482:   mov    rcx,QWORD PTR [rbp-0x68]
+    0.00 :   1486:   shl    rax,0x2
+    0.00 :   148a:   lea    r11,[rcx+rax*1]
+    0.00 :   148e:   add    rax,rbx
+    0.00 :   1491:   movsxd rsi,esi
+    0.00 :   1494:   cmp    DWORD PTR [rbp-0x40],0x6
+    0.00 :   1498:   vmovss xmm2,DWORD PTR [r11+rdi*4]
+    0.00 :   149e:   mov    r9d,esi
+    0.00 :   14a1:   jbe    1794 <main+0x654>
+    0.00 :   14a7:   vbroadcastss ymm1,xmm2
+    0.00 :   14ac:   lea    rcx,[r13+rsi*4+0x0]
+    0.00 :   14b1:   xor    edx,edx
+    0.00 :   14b3:   xchg   ax,ax
+    0.00 :   14b5:   data16 cs nop WORD PTR [rax+rax*1+0x0]
+    0.08 :   14c0:   vmovups ymm0,YMMWORD PTR [rcx+rdx*1]
+    0.30 :   14c5:   vfmadd213ps ymm0,ymm1,YMMWORD PTR [rax+rdx*1]
+    0.08 :   14cb:   vmovups YMMWORD PTR [rax+rdx*1],ymm0
+    0.08 :   14d0:   add    rdx,0x20
+    0.00 :   14d4:   cmp    r14,rdx
+    0.00 :   14d7:   jne    14c0 <main+0x380>
+    0.00 :   14d9:   mov    edx,r12d
+    0.00 :   14dc:   and    edx,0xfffffff8
+    0.00 :   14df:   cmp    r12d,edx
+    0.00 :   14e2:   mov    ecx,edx
+    0.00 :   14e4:   je     1775 <main+0x635>
+    0.00 :   14ea:   mov    r8d,r12d
+    0.00 :   14ed:   sub    r8d,ecx
+    0.00 :   14f0:   lea    r15d,[r8-0x1]
+    0.00 :   14f4:   cmp    r15d,0x2
+    0.00 :   14f8:   jbe    1529 <main+0x3e9>
+    0.00 :   14fa:   mov    r15,QWORD PTR [rbp-0x50]
+    0.00 :   14fe:   vbroadcastss xmm0,xmm2
+    0.00 :   1503:   add    r15,rcx
+    0.00 :   1506:   add    rcx,rsi
+    0.00 :   1509:   test   r8b,0x3
+    0.00 :   150d:   vmovups xmm7,XMMWORD PTR [rbx+r15*4]
+    0.00 :   1513:   vfmadd132ps xmm0,xmm7,XMMWORD PTR [r13+rcx*4+0x0]
+    0.00 :   151a:   vmovups XMMWORD PTR [rbx+r15*4],xmm0
+    0.00 :   1520:   je     159e <main+0x45e>
+    0.00 :   1522:   and    r8d,0xfffffffc
+    0.00 :   1526:   add    edx,r8d
+    0.00 :   1529:   mov    r15d,DWORD PTR [rbp-0x54]
+    0.00 :   152d:   lea    ecx,[r15+rdx*1]
+    0.00 :   1531:   movsxd rcx,ecx
+    0.00 :   1534:   lea    r8,[rbx+rcx*4]
+    0.00 :   1538:   lea    ecx,[rdx+r9*1]
+    0.00 :   153c:   movsxd rcx,ecx
+    0.00 :   153f:   vmovss xmm0,DWORD PTR [r13+rcx*4+0x0]
+    0.00 :   1546:   vfmadd213ss xmm0,xmm2,DWORD PTR [r8]
+    0.00 :   154b:   lea    ecx,[rdx+0x1]
+    0.00 :   154e:   cmp    r12d,ecx
+    0.00 :   1551:   vmovss DWORD PTR [r8],xmm0
+    0.00 :   1556:   jle    159e <main+0x45e>
+    0.00 :   1558:   lea    r8d,[r15+rcx*1]
+    0.00 :   155c:   add    ecx,r9d
+    0.00 :   155f:   add    edx,0x2
+    0.00 :   1562:   movsxd r8,r8d
+    0.00 :   1565:   movsxd rcx,ecx
+    0.00 :   1568:   cmp    r12d,edx
+    0.00 :   156b:   vmovss xmm0,DWORD PTR [r13+rcx*4+0x0]
+    0.00 :   1572:   vfmadd213ss xmm0,xmm2,DWORD PTR [rbx+r8*4]
+    0.00 :   1578:   vmovss DWORD PTR [rbx+r8*4],xmm0
+    0.00 :   157e:   jle    159e <main+0x45e>
+    0.00 :   1580:   lea    ecx,[r15+rdx*1]
+    0.00 :   1584:   add    edx,r9d
+    0.00 :   1587:   movsxd rcx,ecx
+    0.00 :   158a:   movsxd rdx,edx
+    0.00 :   158d:   vmovss xmm4,DWORD PTR [rbx+rcx*4]
+    0.00 :   1592:   vfmadd132ss xmm2,xmm4,DWORD PTR [r13+rdx*4+0x0]
+    0.00 :   1599:   vmovss DWORD PTR [rbx+rcx*4],xmm2
+    0.00 :   159e:   add    rdi,0x1
+    0.00 :   15a2:   add    rsi,QWORD PTR [rbp-0x78]
+    0.00 :   15a6:   cmp    r12d,edi
+    0.00 :   15a9:   jg     1494 <main+0x354>
+    0.00 :   15af:   add    DWORD PTR [rbp-0x70],0x1
+    0.00 :   15b3:   mov    r15,QWORD PTR [rbp-0x38]
+    0.00 :   15b7:   mov    eax,DWORD PTR [rbp-0x70]
+    0.00 :   15ba:   add    QWORD PTR [rbp-0x80],r10
+    0.00 :   15be:   mov    rsi,QWORD PTR [rbp-0x78]
+    0.00 :   15c2:   add    r15,r10
+    0.00 :   15c5:   add    QWORD PTR [rbp-0x50],rsi
+    0.00 :   15c9:   cmp    r12d,eax
+    0.00 :   15cc:   jne    1270 <main+0x130>
+    0.00 :   15d2:   mov    ecx,r12d
+    0.00 :   15d5:   imul   ecx,r12d
+    0.00 :   15d9:   lea    eax,[rcx-0x1]
+    0.00 :   15dc:   cmp    eax,0x6
+    0.00 :   15df:   jbe    17c7 <main+0x687>
+    0.00 :   15e5:   mov    edx,ecx
+    0.00 :   15e7:   mov    rbx,QWORD PTR [rbp-0x98]
+    0.00 :   15ee:   vxorpd xmm3,xmm3,xmm3
+    0.00 :   15f2:   shr    edx,0x3
+    0.00 :   15f5:   shl    rdx,0x5
+    0.00 :   15f9:   mov    rax,rbx
+    0.00 :   15fc:   add    rdx,rbx
+    0.00 :   15ff:   nop
+    0.00 :   1600:   vmovups ymm0,YMMWORD PTR [rax]
+    0.00 :   1604:   add    rax,0x20
+    0.00 :   1608:   cmp    rdx,rax
+    0.00 :   160b:   vcvtps2pd ymm2,xmm0
+    0.00 :   160f:   vaddsd xmm3,xmm2,xmm3
+    0.00 :   1613:   vextractf128 xmm0,ymm0,0x1
+    0.00 :   1619:   vcvtps2pd ymm1,xmm0
+    0.00 :   161d:   vunpckhpd xmm0,xmm2,xmm2
+    0.00 :   1621:   vextractf128 xmm2,ymm2,0x1
+    0.00 :   1627:   vaddsd xmm0,xmm0,xmm3
+    0.00 :   162b:   vaddsd xmm0,xmm0,xmm2
+    0.00 :   162f:   vunpckhpd xmm2,xmm2,xmm2
+    0.00 :   1633:   vaddsd xmm0,xmm0,xmm2
+    0.00 :   1637:   vunpckhpd xmm2,xmm1,xmm1
+    0.00 :   163b:   vaddsd xmm0,xmm0,xmm1
+    0.00 :   163f:   vextractf128 xmm1,ymm1,0x1
+    0.00 :   1645:   vaddsd xmm0,xmm0,xmm2
+    0.08 :   1649:   vaddsd xmm0,xmm0,xmm1
+    0.08 :   164d:   vunpckhpd xmm1,xmm1,xmm1
+    0.00 :   1651:   vaddsd xmm3,xmm0,xmm1
+    0.08 :   1655:   jne    1600 <main+0x4c0>
+    0.00 :   1657:   mov    eax,ecx
+    0.00 :   1659:   and    eax,0xfffffff8
+    0.00 :   165c:   cmp    eax,ecx
+    0.00 :   165e:   mov    esi,eax
+    0.00 :   1660:   je     16ee <main+0x5ae>
+    0.00 :   1666:   mov    edx,ecx
+    0.00 :   1668:   sub    edx,esi
+    0.00 :   166a:   lea    edi,[rdx-0x1]
+    0.00 :   166d:   cmp    edi,0x2
+    0.00 :   1670:   jbe    16b0 <main+0x570>
+    0.00 :   1672:   mov    rbx,QWORD PTR [rbp-0x98]
+    0.00 :   1679:   vxorps xmm0,xmm0,xmm0
+    0.00 :   167d:   test   dl,0x3
+    0.00 :   1680:   vmovups xmm1,XMMWORD PTR [rbx+rsi*4]
+    0.00 :   1685:   vcvtps2pd xmm2,xmm1
+    0.00 :   1689:   vmovhlps xmm0,xmm0,xmm1
+    0.00 :   168d:   vaddsd xmm1,xmm3,xmm2
+    0.00 :   1691:   vunpckhpd xmm2,xmm2,xmm2
+    0.00 :   1695:   vcvtps2pd xmm0,xmm0
+    0.00 :   1699:   vaddsd xmm1,xmm1,xmm2
+    0.00 :   169d:   vaddsd xmm1,xmm1,xmm0
+    0.00 :   16a1:   vunpckhpd xmm0,xmm0,xmm0
+    0.00 :   16a5:   vaddsd xmm3,xmm1,xmm0
+    0.00 :   16a9:   je     16ee <main+0x5ae>
+    0.00 :   16ab:   and    edx,0xfffffffc
+    0.00 :   16ae:   add    eax,edx
+    0.00 :   16b0:   mov    rbx,QWORD PTR [rbp-0x98]
+    0.00 :   16b7:   lea    esi,[rax+0x1]
+    0.00 :   16ba:   vxorps xmm0,xmm0,xmm0
+    0.00 :   16be:   movsxd rdx,eax
+    0.00 :   16c1:   cmp    esi,ecx
+    0.00 :   16c3:   vcvtss2sd xmm1,xmm0,DWORD PTR [rbx+rdx*4]
+    0.00 :   16c8:   vaddsd xmm3,xmm3,xmm1
+    0.00 :   16cc:   jge    16ee <main+0x5ae>
+    0.00 :   16ce:   add    eax,0x2
+    0.00 :   16d1:   vcvtss2sd xmm1,xmm0,DWORD PTR [rbx+rdx*4+0x4]
+    0.00 :   16d7:   vaddsd xmm3,xmm3,xmm1
+    0.00 :   16db:   cmp    eax,ecx
+    0.00 :   16dd:   jge    16ee <main+0x5ae>
+    0.00 :   16df:   vcvtss2sd xmm0,xmm0,DWORD PTR [rbx+rdx*4+0x8]
+    0.00 :   16e5:   vaddsd xmm3,xmm3,xmm0
+    0.00 :   16e9:   vzeroupper
+    0.00 :   16ec:   jmp    16f1 <main+0x5b1>
+    0.00 :   16ee:   vzeroupper
+         : 376  }
+         :
+         : 378  __fortify_function int
+         : 379  printf (const char *__restrict __fmt, ...)
+         : 380  {
+         : 381  return __printf_chk (__USE_FORTIFY_LEVEL - 1, __fmt, __va_arg_pack ());
+    0.00 :   16f1:   vmovapd xmm0,xmm3
+    0.00 :   16f5:   mov    edx,r12d
+    0.00 :   16f8:   mov    edi,0x2
+    0.00 :   16fd:   mov    eax,0x1
+    0.00 :   1702:   lea    rsi,[rip+0x90e]        # 2017 <_IO_stdin_used+0x17>
+    0.00 :   1709:   call   1110 <__printf_chk@plt>
+    0.00 :   170e:   mov    rdi,QWORD PTR [rbp-0x68]
+    0.00 :   1712:   call   10c0 <free@plt>
+    0.00 :   1717:   mov    rdi,r13
+    0.00 :   171a:   call   10c0 <free@plt>
+    0.00 :   171f:   mov    rdi,QWORD PTR [rbp-0x98]
+    0.00 :   1726:   call   10c0 <free@plt>
+    0.00 :   172b:   xor    eax,eax
+    0.00 :   172d:   sub    rsp,0xffffffffffffff80
+    0.00 :   1731:   pop    rbx
+    0.00 :   1732:   pop    r10
+    0.00 :   1734:   pop    r12
+    0.00 :   1736:   pop    r13
+    0.00 :   1738:   pop    r14
+    0.00 :   173a:   pop    r15
+    0.00 :   173c:   pop    rbp
+    0.00 :   173d:   lea    rsp,[r10-0x8]
+    0.00 :   1741:   ret
+    0.00 :   1742:   nop    WORD PTR [rax+rax*1+0x0]
+    0.00 :   1748:   add    r11d,0x2
+    0.00 :   174c:   cmp    r11d,DWORD PTR [rbp-0x58]
+    0.00 :   1750:   je     179d <main+0x65d>
+    0.00 :   1752:   add    rsi,QWORD PTR [rbp-0x60]
+    0.00 :   1756:   add    rdi,0x8
+    0.00 :   175a:   vmovss xmm3,DWORD PTR [rdi]
+    0.00 :   175e:   mov    DWORD PTR [rbp-0x3c],esi
+    0.00 :   1761:   mov    ecx,esi
+    0.00 :   1763:   jmp    12bf <main+0x17f>
+    0.00 :   1768:   xor    edx,edx
+    0.00 :   176a:   xor    eax,eax
+    0.00 :   176c:   lea    ecx,[r12+rsi*1]
+    0.00 :   1770:   jmp    1336 <main+0x1f6>
+    0.00 :   1775:   add    rdi,0x1
+    0.00 :   1779:   cmp    r12d,edi
+    0.00 :   177c:   jle    15af <main+0x46f>
+    0.00 :   1782:   add    rsi,QWORD PTR [rbp-0x78]
+    0.00 :   1786:   vmovss xmm2,DWORD PTR [r11+rdi*4]
+    0.00 :   178c:   mov    r9d,esi
+    0.00 :   178f:   jmp    14a7 <main+0x367>
+    0.00 :   1794:   xor    ecx,ecx
+    0.00 :   1796:   xor    edx,edx
+    0.00 :   1798:   jmp    14ea <main+0x3aa>
+    0.00 :   179d:   mov    ecx,DWORD PTR [rbp-0x84]
+    0.00 :   17a3:   mov    r10,QWORD PTR [rbp-0x90]
+    0.00 :   17aa:   jmp    1471 <main+0x331>
+    0.00 :   17af:   mov    ecx,r12d
+    0.00 :   17b2:   vxorpd xmm3,xmm3,xmm3
+    0.00 :   17b6:   imul   ecx,r12d
+    0.00 :   17ba:   test   ecx,ecx
+    0.00 :   17bc:   je     16f1 <main+0x5b1>
+    0.00 :   17c2:   jmp    15d9 <main+0x499>
+    0.00 :   17c7:   xor    esi,esi
+    0.00 :   17c9:   vxorpd xmm3,xmm3,xmm3
+    0.00 :   17cd:   xor    eax,eax
+    0.00 :   17cf:   jmp    1666 <main+0x526>
+         : 442  return __fprintf_chk (__stream, __USE_FORTIFY_LEVEL - 1, __fmt,
+    0.00 :   17d4:   mov    rcx,QWORD PTR [rip+0x2845]        # 4020 <stderr@GLIBC_2.2.5>
+    0.00 :   17db:   mov    edx,0xe
+    0.00 :   17e0:   mov    esi,0x1
+    0.00 :   17e5:   lea    rdi,[rip+0x81c]        # 2008 <_IO_stdin_used+0x8>
+    0.00 :   17ec:   call   1120 <fwrite@plt>
+    0.00 :   17f1:   mov    eax,0x1
+    0.00 :   17f6:   jmp    172d <main+0x5ed>

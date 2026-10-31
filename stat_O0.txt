@@ -1,0 +1,23 @@
+N=2048 checksum=2147474041.710
+
+ Performance counter stats for './matmul_O0 2048':
+
+          15894.13 msec task-clock                       #    1.000 CPUs utilized             
+                58      context-switches                 #    3.649 /sec                      
+                 2      cpu-migrations                   #    0.126 /sec                      
+             16453      page-faults                      #    1.035 K/sec                     
+   <not supported>      cycles                                                                
+   <not supported>      instructions                                                          
+   <not supported>      branches                                                              
+   <not supported>      branch-misses                                                         
+   <not supported>      L1-dcache-loads                                                       
+   <not supported>      L1-dcache-load-misses                                                 
+   <not supported>      LLC-loads                                                             
+   <not supported>      LLC-load-misses                                                       
+
+      15.896644585 seconds time elapsed
+
+      15.831776000 seconds user
+       0.059983000 seconds sys
+
+
